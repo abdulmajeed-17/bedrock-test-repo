@@ -36,3 +36,4 @@ model UserOrganization {
   @@unique([userId, organizationId])
   @@index([organizationId])
 }
+
