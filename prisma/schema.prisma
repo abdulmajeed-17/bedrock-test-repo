@@ -29,3 +29,4 @@ model UserOrganization {
 
   @@id([userId, organizationId])
 }
+
