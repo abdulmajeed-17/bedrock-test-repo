@@ -13,7 +13,18 @@ model User {
   name            String?
   organizationId  String
   organization    Organization  @relation(fields: [organizationId], references: [id])
+  projects        Project[]
   createdAt       DateTime      @default(now())
+}
+
+model Project {
+  id        String   @id @default(cuid())
+  name      String
+  ownerId   String
+  owner     User     @relation(fields: [ownerId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@index([ownerId])
 }
 
 model Organization {
